@@ -1,0 +1,27 @@
+[
+  {
+    "name": "ピカチュー",
+    "image": "https://animeanime.jp/imgs/p/jtKDOVlKAvjRrNw8SXAVejagI61Nrq_oqaqr/303592.jpg",
+    "age": "300"
+  },
+  {
+    "name": "ピチュー",
+    "image": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/78023852b48998ab5681e1bdc0d6333a.png",
+    "age": "100"
+  },
+  {
+    "name": "ヒコザル",
+    "image":　"https://zukan.pokemon.co.jp/zukan-api/up/images/index/9aeaaf5486c1ff4445efd6fdc160d6cb.png",
+    "age": "10"
+  },
+  {
+    "name": "くまもん",
+    "image": "https://cp.pocky.jp/kumamoto/img/sp/mv-1.png",
+    "age": "45"
+  },
+  {
+    "name": "ひこにゃん",
+    "image": "https://hikone-hikonyan.jp/assets/img/hikonyan-10th.png",
+    "age": "30"
+  }
+]
