@@ -5,27 +5,33 @@ import './Home.scss';
 const People = (userIndex) =>{
     const users = require('./user_sample.json');
     const index = userIndex.userIndex;
+    const numOfUsers = users.length;
 
     return(
         <div className="people">
-            <img src={users[index].image} className="people--image" />
-            <div className="people--name">
-                {users[index].name}
-            </div>
-            <div className="people--age">
-                {users[index].age}
-            </div>
+            {index  < numOfUsers && (
+                <>
+                <img src={users[index].image} className="people--image" />
+                <div className="people--name">
+                    {users[index].name}
+                </div>
+                <div className="people--age">
+                    {users[index].age}
+                </div>
+                </>
+            )}
+            {index >= numOfUsers && (
+                <div className="people--none">
+                    No more users
+                </div>
+            )}
         </div>
     )
-}
+};
 
 const Home = () =>{
 
     const[index, setIndex] = React.useState(0);
-
-    React.useEffect(() =>{
-        console.log(index, "番目")
-    })
 
     return (
             <div id="app">
