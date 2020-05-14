@@ -28,9 +28,10 @@ body, html {
 
 }
 
-#people, .person {
-  width: 250px;
-  height: 265px;
+.people{
+  &--image{
+    width: 100%;
+  }
 }
 
 #people {
