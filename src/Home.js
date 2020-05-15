@@ -2,25 +2,25 @@ import React from 'react';
 import './Home.scss';
 
 
-const People = (userIndex) =>{
+
+const People = ({userIndex, isYesPushed}) =>{
     const users = require('./user_sample.json');
-    const index = userIndex.userIndex;
     const numOfUsers = users.length;
 
     return(
-        <div className="people">
-            {index  < numOfUsers && (
+        <div className={'people' + ' ' + (isYesPushed ? 'rotate-right': '')}>
+            {userIndex  < numOfUsers && (
                 <>
-                <img src={users[index].image} className="people--image" />
+                <img src={users[userIndex].image} className="people--image" />
                 <div className="people--name">
-                    {users[index].name}
+                    {users[userIndex].name}
                 </div>
                 <div className="people--age">
-                    {users[index].age}
+                    {users[userIndex].age}
                 </div>
                 </>
             )}
-            {index >= numOfUsers && (
+            {userIndex >= numOfUsers && (
                 <div className="people--none">
                     No more users
                 </div>
@@ -32,11 +32,21 @@ const People = (userIndex) =>{
 const Home = () =>{
 
     const[index, setIndex] = React.useState(0);
+    const[isYesPushed, setIsYesPushed] = React.useState(false);
+
+    const cardToRight = () =>{
+        setIsYesPushed(true);
+        setTimeout(()=> {
+            setIsYesPushed(false);
+            setIndex(index + 1);}
+            ,400);
+    };
 
     return (
             <div id="app">
                 <People
-                    userIndex={index}>
+                    userIndex={index}
+                    isYesPushed={isYesPushed}>
                 </People>
                 <div id="control">
                     <div className="button no"  onClick={()=>setIndex( index + 1)}>
@@ -45,7 +55,7 @@ const Home = () =>{
                     <div className="button info">
                         <a href="#" className="trigger"></a>
                     </div>
-                    <div className="button yes" onClick={() =>setIndex(index + 1)}>
+                    <div className="button yes" onClick={() =>cardToRight()}>
                         <a href="#" className="trigger"></a>
                     </div>
                 </div>
