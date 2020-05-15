@@ -7,8 +7,12 @@
 
 $phoneDetails: #d3d3d3;
 $phoneColor: #dfdfdf;
+$tinderColor: #FE3C72;
 $phoneWidth: 320px;
 $phoneHeight: 560px;
+$headerHeight: 64px;
+$medium-font-size: 1.4rem;
+$small-font-size: 1.2rem;
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -21,192 +25,117 @@ a {
 
 body, html {
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 
-#app {
-
+#app , #root{
+  height: 100%;
+  width: 100%;
 }
 
-#people{
+.header{
+  height: $headerHeight;
+  background: $tinderColor;
+  color: white;
+  font-size: $medium-font-size;
+  text-align: center;
+  line-height: $headerHeight;
+}
+
+.container{
+  width: 90%;
+  margin: 5% auto 0 auto;
+  position: relative;
+  height: 70%;
+}
+
+.people{
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+  z-index: 100;
   &--image{
     width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+
+  &--info{
+    display: flex;
+    padding: 1rem;
+  }
+
+  &--info-name{
+    font-weight: bold;
+    padding-right: 0.5rem;
+    font-size: $medium-font-size;
+  }
+
+  &--info-age{
+    font-size: $small-font-size;
+    color: gray;
   }
 }
 
 .rotate-right{
-  transform: rotate(30deg) scale(0.8);
+  transform: translateX(400px) rotate(30deg) scale(0.8);
   transition: 1s;
-  margin-left: 400px;
   opacity: 0;
   z-index: 10;
 }
 
 .rotate-left{
-  transform: rotate(-30deg) scale(0.8);
+  transform: translateX(-400px) rotate(-30deg) scale(0.8);
   transition: 1s;
-  margin-right: 400px;
   opacity: 0;
   z-index: 10;
 }
 
 
-
-#people {
-  position: relative;
-  margin: 0 auto;
-}
-
-.person {
-  position: absolute;
-  background-color: transparent;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  transition: all .1s linear;
-  &:nth-child(1){
-    z-index: 5;
-    //animation: no 0.6s infinite;
-  }
-  &:nth-child(2){
-    z-index: 4;
-    top: 7px;
-    transform: scale(0.98);
-  }
-  &:nth-child(3){
-    z-index: 3;
-    top: 14px;
-    transform: scale(0.96);
-  }
-  &:nth-child(n+4){
-    z-index: 2;
-    transform: scale(0.7);
-  }
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    content: '';
-  }
-}
-
-.person img {
-  width: 105%;
-  background: white;
-}
-
-.person span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: white;
-  width: 100%;
-  padding: 10px;
-  font: 16px "Open Sans";
-  line-height: 30px;
-  color: #555;
-}
-
-.person span strong {
-  font-weight: 600;
-  color: #000;
-}
-
-$distance: 400px;
-
-@keyframes yes {
-  0% {
-    transform: scale(1) rotateZ(0deg);
-    left: 0;
-  }
-  30% {
-    transform: scale(1.05) rotateZ(0deg);
-    left: 0;
-  }
-  100% {
-    transform: rotateZ(45deg);
-    left: $distance;
-  }
-}
-
-.animateYes {
-  animation-fill-mode: both;
-  animation: yes 0.6s linear;
-  &:before {
-    transform: rotateZ(-35deg);
-    background: url(https://i.imgur.com/Zkwj970.png) no-repeat center 10px;
-  }
-}
-
-@keyframes no {
-  0% {
-    transform: rotateZ(360deg);
-    right: 0;
-  }
-  30% {
-    transform: scale(1.05) rotateZ(360deg);
-    right: 0;
-  }
-  100% {
-    transform: rotateZ(315deg);
-    right: $distance;
-  }
-}
-
-.animateNo {
-  animation-fill-mode: both;
-  animation: no 0.6s linear;
-  &:before {
-    transform: rotateZ(35deg);
-    background: url(https://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
-  }
-}
-
 #control {
-  position: relative;
-  margin: 15px auto 0;
-  width: 250px;
-  .button {
-    width: 65px;
-    height: 65px;
-    background: #eee;
-    position: absolute;
-    top: 5px;
+  height: calc(30% - #{$headerHeight});
+}
+
+.button {
+  width: 200px;
+  margin:auto;
+  height: 65px;
+  display: flex;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  .trigger {
+    background: white;
+    display: block;
     border-radius: 50%;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    .trigger {
-      background: white;
-      display: block;
-      border-radius: 50%;
-      width: 75%;
-      height: 75%;
-      margin: 0 auto;
-      position: relative;
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .1s;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    &:active {
+      transform: translateY(-50%) scale(0.75);
+      transition: all .05s linear;
+    }
+    &:before {
+      position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      transition: all .1s;
-      text-align: center;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-      &:active {
-        transform: translateY(-50%) scale(0.75);
-        transition: all .05s linear;
-      }
-      &:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-        font-family: 'FontAwesome';
-      }
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      font-family: 'FontAwesome';
     }
   }
 
-  .no {
-    left: 38px;
+  &--no {
+    width: 65px;
+    border-radius: 50%;
+    height: 65px;
+    background: #eee;
     .trigger:before {
       content: "\f00d";
       font-size: 28px;
@@ -214,8 +143,11 @@ $distance: 400px;
     }
   }
 
-  .yes {
-    right: 38px;
+  &--yes {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    background: #eee;
     .trigger:before {
       content: "\f004";
       font-size: 22px;
@@ -223,11 +155,12 @@ $distance: 400px;
     }
   }
 
-  .info {
-    left: calc(50% - 23px);
-    top: 17px;
+  &--info {
+    border-radius: 50%;
+    background: #eee;
     height: 46px;
     width: 46px;
+    margin-top: auto;
     .trigger {
       width: 65%;
       height: 65%;
