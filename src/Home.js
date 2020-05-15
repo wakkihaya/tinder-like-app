@@ -3,12 +3,12 @@ import './Home.scss';
 
 
 
-const People = ({userIndex, isYesPushed}) =>{
+const People = ({userIndex, isYesPushed, isNoPushed}) =>{
     const users = require('./user_sample.json');
     const numOfUsers = users.length;
 
     return(
-        <div className={'people' + ' ' + (isYesPushed ? 'rotate-right': '')}>
+        <div className={'people' + ' ' + (isYesPushed ? 'rotate-right': '') + (isNoPushed ? 'rotate-left': '')}>
             {userIndex  < numOfUsers && (
                 <>
                 <img src={users[userIndex].image} className="people--image" />
@@ -33,6 +33,8 @@ const Home = () =>{
 
     const[index, setIndex] = React.useState(0);
     const[isYesPushed, setIsYesPushed] = React.useState(false);
+    const[isNoPushed, setIsNoPushed] = React.useState(false);
+
 
     const cardToRight = () =>{
         setIsYesPushed(true);
@@ -42,14 +44,24 @@ const Home = () =>{
             ,400);
     };
 
+    const cardToLeft = () =>{
+        setIsNoPushed(true);
+        setTimeout(()=> {
+                setIsNoPushed(false);
+                setIndex(index + 1);}
+            ,400);
+    };
+
+
     return (
             <div id="app">
                 <People
                     userIndex={index}
-                    isYesPushed={isYesPushed}>
+                    isYesPushed={isYesPushed}
+                    isNoPushed={isNoPushed}>
                 </People>
                 <div id="control">
-                    <div className="button no"  onClick={()=>setIndex( index + 1)}>
+                    <div className="button no"  onClick={()=>cardToLeft()}>
                         <a href="#" className="trigger"></a>
                     </div>
                     <div className="button info">

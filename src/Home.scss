@@ -42,6 +42,15 @@ body, html {
   z-index: 10;
 }
 
+.rotate-left{
+  transform: rotate(-30deg) scale(0.8);
+  transition: 1s;
+  margin-right: 400px;
+  opacity: 0;
+  z-index: 10;
+}
+
+
 
 #people {
   position: relative;
