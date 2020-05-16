@@ -2,21 +2,25 @@
   {
     "name": "ピカチュー",
     "image": "https://animeanime.jp/imgs/p/jtKDOVlKAvjRrNw8SXAVejagI61Nrq_oqaqr/303592.jpg",
-    "age": "300"
+    "age": "300",
+    "description": "東京都在住。 \n いつもは家でゴロゴロしますが、たまに空をゴロゴロさせます。"
   },
   {
     "name": "ピチュー",
     "image": "https://zukan.pokemon.co.jp/zukan-api/up/images/index/78023852b48998ab5681e1bdc0d6333a.png",
-    "age": "100"
+    "age": "100",
+    "description": "東京都在住。 \n 実家暮らし。　お父さんは機嫌が悪いので、家には来ないでください。"
   },
   {
     "name": "くまもん",
     "image": "https://cp.pocky.jp/kumamoto/img/sp/mv-1.png",
-    "age": "45"
+    "age": "45",
+    "description": "熊本県LOVE \n "
   },
   {
     "name": "ひこにゃん",
     "image": "https://hikone-hikonyan.jp/assets/img/hikonyan-10th.png",
-    "age": "30"
+    "age": "30",
+    "description": "滋賀県LOVE\n"
   }
 ]
