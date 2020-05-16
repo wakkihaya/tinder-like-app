@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.scss';
+import Cards, { Card } from "react-swipe-card";
+
 
 
 
@@ -8,12 +10,7 @@ const People = ({userIndex, isYesPushed, isNoPushed}) =>{
     const numOfUsers = users.length;
 
     return(
-        <>
-        <div className="header">
-            Pokemonder
-        </div>
         <div className="container">
-
             <div className={'people' + ' ' + (isYesPushed ? 'rotate-right': '') + (isNoPushed ? 'rotate-left': '')}>
                 {userIndex  < numOfUsers && (
                     <>
@@ -35,7 +32,6 @@ const People = ({userIndex, isYesPushed, isNoPushed}) =>{
                 )}
             </div>
         </div>
-            </>
     )
 };
 
@@ -63,17 +59,18 @@ const Home = () =>{
 
     return (
             <div id="app">
-                <People
-                    userIndex={index}
-                    isYesPushed={isYesPushed}
-                    isNoPushed={isNoPushed}>
-                </People>
+                <div className="header">
+                    Pokemonder
+                </div>
+                        <People
+                            userIndex={index}
+                            isYesPushed={isYesPushed}
+                            isNoPushed={isNoPushed}
+                        >
+                        </People>
                 <div id="control">
                     <div className="button">
                         <div className="button--no"  onClick={()=>cardToLeft()}>
-                            <a href="#" className="trigger"></a>
-                        </div>
-                        <div className="button--info">
                             <a href="#" className="trigger"></a>
                         </div>
                         <div className="button--yes" onClick={() =>cardToRight()}>
